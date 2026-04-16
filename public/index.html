@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece - Tiki Taka Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>TIKI-TAKA-TOE</h1>
+            <div class="info-panel">
+                <div id="roleDisplay">Você é: <span>...</span></div>
+                <div id="turnDisplay">Aguardando...</div>
+                <div id="timerDisplay">Tempo: 60s</div>
+            </div>
+            <div class="actions">
+                <button id="btnSkip">Pular Turno (Skip)</button>
+                <button id="btnDraw">Pedir Empate (Draw)</button>
+            </div>
+        </header>
+
+        <div class="board" id="board">
+            <div class="empty-corner"></div>
+            <div class="col-header" id="col0"></div>
+            <div class="col-header" id="col1"></div>
+            <div class="col-header" id="col2"></div>
+
+            <div class="row-header" id="row0"></div>
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+
+            <div class="row-header" id="row1"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+
+            <div class="row-header" id="row2"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="inputModal">
+        <div class="modal-content">
+            <h2>Quem se encaixa aqui?</h2>
+            <input type="text" id="characterInput" placeholder="Nome do Personagem" autocomplete="off">
+            <button id="btnSubmitMove">Confirmar</button>
+            <button id="btnCancelMove">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

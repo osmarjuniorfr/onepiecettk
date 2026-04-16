@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --p1-color: #8b0000; /* Vermelho Escuro */
+    --p2-color: #003366; /* Azul Oceano */
+    --wood-dark: #3e2723;
+    --paper: #f4e4bc;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Fundo imitando madeira escura */
+    background-color: #2c1a11;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(0,0,0,0.1) 50px, rgba(0,0,0,0.1) 52px);
+    color: var(--paper);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border: 3px solid #5d4037;
+}
+
+h1 {
+    font-family: 'Pirata One', cursive;
+    text-align: center;
+    font-size: 3rem;
+    color: #ffd700; /* Dourado */
+    text-shadow: 2px 2px 4px #000;
+    margin-top: 0;
+}
+
+.info-panel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: var(--wood-dark);
+    border-radius: 8px;
+    border: 2px solid #5d4037;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background: #d4af37;
+    color: #000;
+    border: 2px solid #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover { background: #ffd700; transform: scale(1.05); }
+
+.board {
+    display: grid;
+    grid-template-columns: 120px 140px 140px 140px;
+    grid-template-rows: 120px 140px 140px 140px;
+    gap: 10px;
+}
+
+.col-header, .row-header {
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png'), var(--paper);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    border: 2px dashed #8b4513;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.cell {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #5d4037;
+    border: 3px solid #3e2723;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    transition: 0.3s;
+}
+
+.cell:hover { border-color: #ffd700; }
+
+/* Estilos de domínio P1 e P2 inspirados em Wanted Posters */
+.cell.taken {
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png'), var(--paper);
+    color: #000;
+    text-shadow: none;
+    cursor: not-allowed;
+    border-width: 4px;
+}
+.cell.taken.p1 { border-color: var(--p1-color); color: var(--p1-color); }
+.cell.taken.p2 { border-color: var(--p2-color); color: var(--p2-color); }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+.modal.active { display: flex; }
+
+.modal-content {
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png'), var(--paper);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+    border: 4px solid #8b4513;
+}
+
+.modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
